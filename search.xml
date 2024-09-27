@@ -8,6 +8,27 @@
 ]]></content>
   </entry>
   <entry>
+    <title>收藏夹</title>
+    <url>/2024/09/26/%E6%94%B6%E8%97%8F%E5%A4%B9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>
+    <div id="aplayer-sdlEEQAv" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="12597889363" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
+    ></div>
+
+<h2 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h2><p><a href="https://app.simplenote.com/">simplenote</a></p>
+<h2 id="LLMs"><a href="#LLMs" class="headerlink" title="LLMs"></a>LLMs</h2><p><a href="https://www.perplexity.ai/">perplexity</a><br><a href="https://code.fittentech.com/">fitten code</a><br><a href="https://chat.deepseek.com/coder">deepseek</a><br><a href="https://kimi.moonshot.cn/">kimi</a><br><a href="https://metaso.cn/">秘塔</a></p>
+ <span id="more"></span> 
+
+<h2 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h2><p><a href="https://gptzero.me/">gotzero</a><br><a href="https://www.wolframalpha.com/">wolframalpha</a><br><a href="https://suno.com/">suno</a><br><a href="https://www.pixcakeai.com/ability">PixCake AI精修图片</a><br><a href="https://www.iopaint.com/?ref=ai-bot.cn">IOPaint 图像背景抹除</a><br><a href="https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/cn/README.md">GPT-SoVITS-WebUI</a></p>
+<h2 id="算法题库"><a href="#算法题库" class="headerlink" title="算法题库"></a>算法题库</h2><p><a href="https://ac.nowcoder.com/">牛客</a><br><a href="https://leetcode.cn/">leetcode</a><br><a href="https://www.luogu.com.cn/">洛谷</a><br><a href="https://codeforces.com/">codeforces</a><br><a href="https://cftracker.netlify.app/contests">CFTracker</a></p>
+<h2 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h2><p><a href="https://www.icourse163.org/">MOOC</a><br><a href="https://www.coursera.org/?msockid=18a2e3d6c3776c4a34cff713c2a56de3">coursera</a><br><a href="https://www.edx.org/">edX</a><br><a href="https://www.freecodecamp.org/learn/">freecodecamp</a></p>
+<h2 id="文字教程"><a href="#文字教程" class="headerlink" title="文字教程"></a>文字教程</h2><p><a href="https://www.r2coding.com/#/">r2coding</a><br><a href="https://www.runoob.com/">runoob</a><br><a href="https://csdiy.wiki/CS%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92/#_1">CS自学指南</a><br><a href="https://oi-wiki.org/">OI Wiki</a><br><a href="https://csguide.cn/roadmap/">编程指北</a></p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><a href="https://www.klippel.de/listeningtest/">listening test</a></p>
+<h2 id="二次元"><a href="#二次元" class="headerlink" title="二次元"></a>二次元</h2><p><a href="https://www.falesti.me/?ref=acgdh.cc">宅方社</a></p>
+<h2 id="电子书"><a href="#电子书" class="headerlink" title="电子书"></a>电子书</h2><p><a href="https://www.manongbook.com/">码农书籍库</a><br><a href="http://www.banshujiang.cn/">搬书匠</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2024/09/23/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -25,27 +46,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>收藏夹</title>
-    <url>/2024/09/26/%E6%94%B6%E8%97%8F%E5%A4%B9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>
-    <div id="aplayer-oaFidmdS" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="12597889363" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
-    ></div>
-
-<h2 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h2><p><a href="https://app.simplenote.com/">simplenote</a></p>
-<h2 id="LLMs"><a href="#LLMs" class="headerlink" title="LLMs"></a>LLMs</h2><p><a href="https://www.perplexity.ai/">perplexity</a><br><a href="https://code.fittentech.com/">fitten code</a><br><a href="https://chat.deepseek.com/coder">deepseek</a><br><a href="https://kimi.moonshot.cn/">kimi</a></p>
- <span id="more"></span> 
-
-<h2 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h2><p><a href="https://gptzero.me/">gotzero</a><br><a href="https://www.wolframalpha.com/">wolframalpha</a><br><a href="https://suno.com/">suno</a><br><a href="https://www.pixcakeai.com/ability">PixCake AI精修图片</a><br><a href="https://www.iopaint.com/?ref=ai-bot.cn">IOPaint 图像背景抹除</a><br><a href="https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/cn/README.md">GPT-SoVITS-WebUI</a></p>
-<h2 id="算法题库"><a href="#算法题库" class="headerlink" title="算法题库"></a>算法题库</h2><p><a href="https://ac.nowcoder.com/">牛客</a><br><a href="https://leetcode.cn/">leetcode</a><br><a href="https://www.luogu.com.cn/">洛谷</a><br><a href="https://codeforces.com/">codeforces</a><br><a href="https://cftracker.netlify.app/contests">CFTracker</a></p>
-<h2 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h2><p><a href="https://www.icourse163.org/">MOOC</a><br><a href="https://www.coursera.org/?msockid=18a2e3d6c3776c4a34cff713c2a56de3">coursera</a><br><a href="https://www.edx.org/">edX</a><br><a href="https://www.freecodecamp.org/learn/">freecodecamp</a></p>
-<h2 id="文字教程"><a href="#文字教程" class="headerlink" title="文字教程"></a>文字教程</h2><p><a href="https://www.r2coding.com/#/">r2coding</a><br><a href="https://www.runoob.com/">runoob</a><br><a href="https://csdiy.wiki/CS%E5%AD%A6%E4%B9%A0%E8%A7%84%E5%88%92/#_1">CS自学指南</a><br><a href="https://oi-wiki.org/">OI Wiki</a><br><a href="https://csguide.cn/roadmap/">编程指北</a></p>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><a href="https://www.klippel.de/listeningtest/">listening test</a></p>
-<h2 id="二次元"><a href="#二次元" class="headerlink" title="二次元"></a>二次元</h2><p><a href="https://www.falesti.me/?ref=acgdh.cc">宅方社</a></p>
-<h2 id="电子书"><a href="#电子书" class="headerlink" title="电子书"></a>电子书</h2><p><a href="https://www.manongbook.com/">码农书籍库</a><br><a href="http://www.banshujiang.cn/">搬书匠</a></p>
 ]]></content>
   </entry>
 </search>
