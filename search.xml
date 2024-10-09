@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>blog维护和美化</title>
-    <url>/2024/09/25/blog%E7%BB%B4%E6%8A%A4%E5%92%8C%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="感谢在搭建blog时参考的文章"><a href="#感谢在搭建blog时参考的文章" class="headerlink" title="感谢在搭建blog时参考的文章"></a>感谢在搭建blog时参考的文章</h2><p><a href="https://zhuanlan.zhihu.com/p/618864711#:~:text=%E6%88%91%E7%9A%84%E4%B8%BB%E9%A2%98%E6%98%AF%20ne">(zhihu)Hexo+Next主题搭建个人博客+优化全过程</a><br><a href="https://lcdzzz.github.io/2022/11/05/hexo-bo-ke-an-zhuang-jiao-cheng-tai-jiao-ji/#:~:text=Hexo%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B9%B6%E5%AE%89%E8%A3%85%E6%89%80%E9%9C%80%E7%BB%84%E4%BB%B6%EF%BC%9A%20hexo%20init%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96npminstall%23%20%E5%AE%89%E8%A3%85%E7%BB%84%E4%BB%B6,%23%20%E7%94%9F%E6%88%90%E9%A1%B5%E9%9D%A2hexo%20s%20%23%20%E5%90%AF%E5%8A%A8%E9%A2%84%E8%A7%88%20%E8%AE%BF%E9%97%AEhttp%3A%2F%2Flocalhost%3A4000%EF%BC%8C%E5%87%BA%E7%8E%B0%20Hexo%20%E9%BB%98%E8%AE%A4%E9%A1%B5%E9%9D%A2%EF%BC%8C%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%EF%BC%81">(个人)hexo 博客安装教程 胎教级</a><br><a href="https://github.com/xiazeyu/live2d-widget-models">(github)live2d models</a><br><a href="https://blog.wangjiezhe.com/posts/2018-10-29-Hexo-NexT-2/">(个人)Hexo NexT 魔改系列之二 ── 搜索篇</a><br><a href="https://fuguigui.github.io/hexo2/#:~:text=%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A%20%E4%BD%BF">(个人)一次完整的Hexo写作流程</a><br><a href="https://tieba.baidu.com/p/9074309646">(贴吧)本地访问正常但部署到GitHub上访问就出问题</a><br><a href="https://blog.csdn.net/qq_32767041/article/details/103284345#:~:text=NexT%20%E9%BB%98%E8%AE%A4%E4%B8%8D">(cnds)Hexo 搭建个人博客（八）NexT 侧边栏配置</a><br><a href="https://blog.csdn.net/as480133937/article/details/100138838">(cnds)Hexo-Next 主题博客个性化配置超详细，超全面(两万字)</a><br><a href="https://fuguigui.github.io/hexo2/#:~:text=%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A%20%E4%BD%BF">(个人)一次完整的Hexo写作流程</a><br><a href="https://blog.wangjiezhe.com/posts/2018-10-29-Hexo-NexT-2/">(个人)Hexo NexT 魔改系列之二 ── 搜索篇</a><br><a href="https://leezhiy.github.io/2020/04/11/2020-04-11-Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%EF%BC%88%E6%B7%BB%E5%8A%A0%E7%BD%91%E9%A1%B5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%EF%BC%89/#%E4%BD%BF%E7%94%A8-hexo-tag-aplayer-%E6%8F%92%E4%BB%B6">(个人)Hexo+Next 搭建个人博客 （添加网页音乐播放器）</a></p>
-<h2 id="今后的想完成的美化"><a href="#今后的想完成的美化" class="headerlink" title="今后的想完成的美化"></a>今后的想完成的美化</h2><p>暂无</p>
-]]></content>
-  </entry>
-  <entry>
     <title>【置顶】收藏夹</title>
     <url>/2024/09/26/%E6%94%B6%E8%97%8F%E5%A4%B9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>
-    <div id="aplayer-npgrfkSw" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-mhieOrqo" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="12654282371" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 
@@ -24,6 +17,24 @@
 <h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><a href="https://www.klippel.de/listeningtest/">listening test</a></p>
 <h2 id="二次元"><a href="#二次元" class="headerlink" title="二次元"></a>二次元</h2><p><a href="https://www.falesti.me/?ref=acgdh.cc">宅方社</a></p>
 <h2 id="电子书"><a href="#电子书" class="headerlink" title="电子书"></a>电子书</h2><p><a href="https://www.manongbook.com/">码农书籍库</a><br><a href="http://www.banshujiang.cn/">搬书匠</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>竞赛技巧</title>
+    <url>/2024/10/08/%E7%AB%9E%E8%B5%9B%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="c语言"><a href="#c语言" class="headerlink" title="c语言"></a>c语言</h2><h5 id="部分不通过可能是精度不够-把float改成double-把int改成long-long试试"><a href="#部分不通过可能是精度不够-把float改成double-把int改成long-long试试" class="headerlink" title="部分不通过可能是精度不够,把float改成double,把int改成long long试试;"></a>部分不通过可能是精度不够,把float改成double,把int改成long long试试;</h5>]]></content>
+  </entry>
+  <entry>
+    <title>新坑</title>
+    <url>/2024/10/06/%E6%96%B0%E5%9D%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>1.算法的总结<br>2.不同种类AI的理解和使用<br>3.待续</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>blog维护和美化</title>
+    <url>/2024/09/25/blog%E7%BB%B4%E6%8A%A4%E5%92%8C%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="感谢在搭建blog时参考的文章"><a href="#感谢在搭建blog时参考的文章" class="headerlink" title="感谢在搭建blog时参考的文章"></a>感谢在搭建blog时参考的文章</h2><p><a href="https://zhuanlan.zhihu.com/p/618864711#:~:text=%E6%88%91%E7%9A%84%E4%B8%BB%E9%A2%98%E6%98%AF%20ne">(zhihu)Hexo+Next主题搭建个人博客+优化全过程</a><br><a href="https://lcdzzz.github.io/2022/11/05/hexo-bo-ke-an-zhuang-jiao-cheng-tai-jiao-ji/#:~:text=Hexo%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B9%B6%E5%AE%89%E8%A3%85%E6%89%80%E9%9C%80%E7%BB%84%E4%BB%B6%EF%BC%9A%20hexo%20init%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96npminstall%23%20%E5%AE%89%E8%A3%85%E7%BB%84%E4%BB%B6,%23%20%E7%94%9F%E6%88%90%E9%A1%B5%E9%9D%A2hexo%20s%20%23%20%E5%90%AF%E5%8A%A8%E9%A2%84%E8%A7%88%20%E8%AE%BF%E9%97%AEhttp%3A%2F%2Flocalhost%3A4000%EF%BC%8C%E5%87%BA%E7%8E%B0%20Hexo%20%E9%BB%98%E8%AE%A4%E9%A1%B5%E9%9D%A2%EF%BC%8C%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%EF%BC%81">(个人)hexo 博客安装教程 胎教级</a><br><a href="https://github.com/xiazeyu/live2d-widget-models">(github)live2d models</a><br><a href="https://blog.wangjiezhe.com/posts/2018-10-29-Hexo-NexT-2/">(个人)Hexo NexT 魔改系列之二 ── 搜索篇</a><br><a href="https://fuguigui.github.io/hexo2/#:~:text=%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A%20%E4%BD%BF">(个人)一次完整的Hexo写作流程</a><br><a href="https://tieba.baidu.com/p/9074309646">(贴吧)本地访问正常但部署到GitHub上访问就出问题</a><br><a href="https://blog.csdn.net/qq_32767041/article/details/103284345#:~:text=NexT%20%E9%BB%98%E8%AE%A4%E4%B8%8D">(cnds)Hexo 搭建个人博客（八）NexT 侧边栏配置</a><br><a href="https://blog.csdn.net/as480133937/article/details/100138838">(cnds)Hexo-Next 主题博客个性化配置超详细，超全面(两万字)</a><br><a href="https://fuguigui.github.io/hexo2/#:~:text=%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A%20%E4%BD%BF">(个人)一次完整的Hexo写作流程</a><br><a href="https://blog.wangjiezhe.com/posts/2018-10-29-Hexo-NexT-2/">(个人)Hexo NexT 魔改系列之二 ── 搜索篇</a><br><a href="https://leezhiy.github.io/2020/04/11/2020-04-11-Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%EF%BC%88%E6%B7%BB%E5%8A%A0%E7%BD%91%E9%A1%B5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%EF%BC%89/#%E4%BD%BF%E7%94%A8-hexo-tag-aplayer-%E6%8F%92%E4%BB%B6">(个人)Hexo+Next 搭建个人博客 （添加网页音乐播放器）</a></p>
+<h2 id="今后的想完成的美化"><a href="#今后的想完成的美化" class="headerlink" title="今后的想完成的美化"></a>今后的想完成的美化</h2><p>暂无</p>
 ]]></content>
   </entry>
   <entry>
@@ -45,16 +56,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>新坑</title>
-    <url>/2024/10/06/%E6%96%B0%E5%9D%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>1.算法的总结<br>2.不同种类AI的理解和使用<br>3.待续</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>竞赛技巧</title>
-    <url>/2024/10/08/%E7%AB%9E%E8%B5%9B%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="c语言"><a href="#c语言" class="headerlink" title="c语言"></a>c语言</h2><h5 id="部分不通过可能是精度不够-把float改成double-把int改成long-long试试"><a href="#部分不通过可能是精度不够-把float改成double-把int改成long-long试试" class="headerlink" title="部分不通过可能是精度不够,把float改成double,把int改成long long试试;"></a>部分不通过可能是精度不够,把float改成double,把int改成long long试试;</h5>]]></content>
   </entry>
 </search>
