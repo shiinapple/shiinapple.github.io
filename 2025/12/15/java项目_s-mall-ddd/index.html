@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shiinapple.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="架构mvc 1234567891011121314151617181920your-project&#x2F;├── src&#x2F;│   ├── main&#x2F;│   │   ├── java&#x2F;│   │   │   └── com&#x2F;yourname&#x2F;project&#x2F;│   │   │       ├── controller&#x2F;       # 控制器层，处理HTTP请求│   │   │       │   └─">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java项目_s-mall-ddd">
+<meta property="og:url" content="https://shiinapple.github.io/2025/12/15/java%E9%A1%B9%E7%9B%AE_s-mall-ddd/index.html">
+<meta property="og:site_name" content="Shiinapple&#39;s Blog">
+<meta property="og:description" content="架构mvc 1234567891011121314151617181920your-project&#x2F;├── src&#x2F;│   ├── main&#x2F;│   │   ├── java&#x2F;│   │   │   └── com&#x2F;yourname&#x2F;project&#x2F;│   │   │       ├── controller&#x2F;       # 控制器层，处理HTTP请求│   │   │       │   └─">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1763091966298-464100d1-0a7c-4bf7-8a17-3def76b7b8a8.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1761635230634-b923a4b1-2120-46fb-a5ef-619afb47894c.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762080599589-5a170dee-5542-47dc-84a6-d0b39d2278f7.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762081060380-e4cb93fa-2aa8-4b98-889f-5d23057a5621.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762082603275-8cef4fd0-9cda-47be-a4a5-7c6f5ec375b2.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1759211439174-4eaef708-bcef-47d8-baba-ae758e77c97c.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760072730411-757c3eb5-00b0-4d32-8da1-6a8f13e6566c.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760421921225-de03d09c-cb79-46b6-ba40-3380224d2586.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760425505838-9634b337-4cdf-4496-9831-a5bc8ce5da74.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760426643548-0f8a3d7c-441b-4b6f-93e8-2076099785d1.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760686079177-6a0e3087-71ca-48ae-b2b6-a8d34dd41828.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760687433306-017476ee-9e62-4fde-a6c4-23b72cda415b.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762931588523-07951d3a-aeba-477f-b05b-92de4a22ffa0.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1763633924599-e2b3109c-1d22-4a1f-9b38-fd6134c1a2bf.png">
+<meta property="article:published_time" content="2025-12-15T12:53:47.330Z">
+<meta property="article:modified_time" content="2025-12-15T14:56:24.419Z">
+<meta property="article:author" content="Yumemi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/59284050/1763091966298-464100d1-0a7c-4bf7-8a17-3def76b7b8a8.png">
+
+<link rel="canonical" href="https://shiinapple.github.io/2025/12/15/java%E9%A1%B9%E7%9B%AE_s-mall-ddd/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>java项目_s-mall-ddd | Shiinapple's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Shiinapple's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shiinapple's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://shiinapple.github.io/2025/12/15/java%E9%A1%B9%E7%9B%AE_s-mall-ddd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yumemi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shiinapple's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java项目_s-mall-ddd
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-12-15 20:53:47 / 修改时间：22:56:24" itemprop="dateCreated datePublished" datetime="2025-12-15T20:53:47+08:00">2025-12-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="mvc"><a href="#mvc" class="headerlink" title="mvc"></a>mvc</h2><p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1763091966298-464100d1-0a7c-4bf7-8a17-3def76b7b8a8.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">your-project/</span><br><span class="line">├── src/</span><br><span class="line">│   ├── main/</span><br><span class="line">│   │   ├── java/</span><br><span class="line">│   │   │   └── com/yourname/project/</span><br><span class="line">│   │   │       ├── controller/       # 控制器层，处理HTTP请求</span><br><span class="line">│   │   │       │   └── UserController.java</span><br><span class="line">│   │   │       ├── service/          # 业务逻辑层接口</span><br><span class="line">│   │   │       │   └── UserService.java</span><br><span class="line">│   │   │       ├── service/impl/     # 业务逻辑层实现</span><br><span class="line">│   │   │       │   └── UserServiceImpl.java</span><br><span class="line">│   │   │       ├── dao/              # 数据访问层</span><br><span class="line">│   │   │       │   └── UserDao.java</span><br><span class="line">│   │   │       └── config/           # 配置类（Spring配置）</span><br><span class="line">│   │   │           └── WebConfig.java</span><br><span class="line">│   │   └── resources/</span><br><span class="line">│   │       ├── application.properties # 配置文件</span><br><span class="line">│   │       └── views/                 # 视图文件夹（JSP、Thymeleaf等）</span><br><span class="line">│   │           └── user.jsp</span><br><span class="line">└── pom.xml                           # Maven配置文件</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Model 负责数据和业务逻辑</li>
+<li>View 负责界面显示</li>
+<li>Controller 负责处理请求和协调Model与View</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">用户点击按钮</span><br><span class="line">    ↓</span><br><span class="line">Controller 接收请求 -&gt; 调用 Model 获取数据</span><br><span class="line">    ↓</span><br><span class="line">Controller 选择对应 View</span><br><span class="line">    ↓</span><br><span class="line">View 渲染并返回给用户</span><br></pre></td></tr></table></figure>
+
+<p>拦截器</p>
+<h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><p>远程调用,注册中心,网关都是在单体项目变成分布式项目后对出现的问题的解决.</p>
+<h3 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用:"></a>远程调用:</h3><p>分布式项目 数据库只能连接一个项目,不同项目之间有耦合, 所以要远程调用</p>
+<p>注册中心:分布式项目有多个服务器,端口写死维护困难,所以要注册中心</p>
+<p>网关:分布式项目因为有不同项目,前端只发一个json.需要网关创建路由,就知道访问哪里了.</p>
+<p>远程调用:拆分成很多单体项目,不同项目之间通过 http请求 完成数据业务交换</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1761635230634-b923a4b1-2120-46fb-a5ef-619afb47894c.png" alt="截屏2025-10-28 15.06.07.png"></p>
+<p>Spring给我们提供了一个RestTemplate的API，可以方便的实现Http请求的发送。</p>
+<p>注册RestTemplate到Spring容器</p>
+<p>调用RestTemplate的API发送请求，常见方法有：</p>
+<p>getForObject：发送Get请求并返回指定类型对象</p>
+<p>PostForObject：发送Post请求并返回指定类型对象</p>
+<p>put：发送PUT请求</p>
+<p>delete：发送Delete请求</p>
+<p>exchange：发送任意类型请求，返回ResponseEntity</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762080599589-5a170dee-5542-47dc-84a6-d0b39d2278f7.png" alt="image.png"></p>
+<p>可以用OpenFeign + Nacos简化开发</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762081060380-e4cb93fa-2aa8-4b98-889f-5d23057a5621.png" alt="image.png"></p>
+<h3 id="连接池-OK-HTTP"><a href="#连接池-OK-HTTP" class="headerlink" title="连接池(OK HTTP)"></a>连接池(OK HTTP)</h3><p>因为可能出现不同服务需要同样的Client,导致重复编码,所以可以抽取相同的Client</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762082603275-8cef4fd0-9cda-47be-a4a5-7c6f5ec375b2.png" alt="image.png"></p>
+<h3 id="注册中心-nacos"><a href="#注册中心-nacos" class="headerlink" title="注册中心(nacos)"></a>注册中心(nacos)</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1759211439174-4eaef708-bcef-47d8-baba-ae758e77c97c.png" alt="v2-057c9593e1f0a317d1c68b1ba7ecad13_1440w.jpg.png"></p>
+<p>服务提供方可能不止一个服务器,</p>
+<p>这时就需要有一个注册中心为服务消费方找到要调用的端口</p>
+<h3 id="远程调用-openfeign"><a href="#远程调用-openfeign" class="headerlink" title="远程调用(openfeign)"></a>远程调用(openfeign)</h3><p>使用步骤：</p>
+<p>在服务消费者里引入 spring-cloud-starter-openfeign。</p>
+<p>在启动类加 @EnableFeignClients。</p>
+<p>定义一个接口，写上 @FeignClient(name &#x3D; “服务名”)，就能像本地方法一样调用远程服务。</p>
+<p>负载均衡</p>
+<p>DiscoveryClient，SpringCloud已经帮我们自动装配，我们可以直接注入使用</p>
+<p>心跳机制</p>
+<h3 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h3><p> 路由、转发、身份验证</p>
+<p>可以从注册中心拉取端口</p>
+<p>前端-&gt;网关-&gt;注册中心-&gt;分布式后端</p>
+<p>解决前端对微服务难以维护,有了网关,前端就可以像单体式架构一样直接调用网关了</p>
+<p>但是!!后端开发仍然需要配置路由规则,让json找到需要的服务</p>
+<p> 路由</p>
+<p>Gateway 收到请求请求被包装成一个 ServerWebExchange 对象。路由匹配阶段Gateway 遍历所有 Route。调用每个 Route 的 predicate。这里的 Path&#x3D;&#x2F;api&#x2F;user&#x2F;** 断言返回 true → 匹配成功。路由命中Gateway 确定目标 URI 为 lb:&#x2F;&#x2F;user-service。创建过滤器链（包括全局和局部过滤器）。执行前置过滤器(pre)StripPrefix&#x3D;1 会将路径从 &#x2F;api&#x2F;user&#x2F;list 变成 &#x2F;user&#x2F;list。然后继续。请求被转发Gateway 将请求交给负载均衡器（LoadBalancerClient）。实际转发给一个实例，比如 <a target="_blank" rel="noopener" href="http://192.168.0.5:8081/user/list%E3%80%82%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%84%E7%90%86%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94user-service">http://192.168.0.5:8081/user/list。微服务处理并返回响应user-service</a> 返回 JSON 数据。执行后置过滤器(post)比如加响应头、记录日志等。Gateway 将结果返回客户端</p>
+<p>路由断言:规定请求是否命中某条路由</p>
+<p>路由过滤器:请求转发前后对请求&#x2F;响应做修改、增强或拦截</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760072730411-757c3eb5-00b0-4d32-8da1-6a8f13e6566c.png" alt="image.png"></p>
+<p>网关登陆校验的原理就是在pre设置一个过滤器,就可以在网关转发之前做校验</p>
+<p>自定义过滤器</p>
+<p> 登录校验</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760421921225-de03d09c-cb79-46b6-ba40-3380224d2586.png" alt="image.png"></p>
+<p> 1.gateway -&gt; 微服务:</p>
+<p>修改登录校验拦截器的处理逻辑,保存用户到请求头</p>
+<p>hm-common中拦截器保存登录用户,保存到ThreadLocal</p>
+<p>拦截器应该只在微服务中,gateway可以用SpringMVC来排除</p>
+<p> 2.微服务 -&gt; 微服务:</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760425505838-9634b337-4cdf-4496-9831-a5bc8ce5da74.png" alt="image.png"></p>
+<p>通过OpenFeign在hm-api的拦截器传递用户信息</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760426643548-0f8a3d7c-441b-4b6f-93e8-2076099785d1.png" alt="image.png"></p>
+<h3 id="配置管理-Nacos"><a href="#配置管理-Nacos" class="headerlink" title="配置管理(Nacos)"></a>配置管理(Nacos)</h3><p>微服务重复配置过多，维护成本高</p>
+<p>业务配置经常变动，每次修改都要重启</p>
+<p>服务网关路由配置写死，如果变更要重启网关</p>
+<p> 配置共享</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760686079177-6a0e3087-71ca-48ae-b2b6-a8d34dd41828.png" alt="image.png"></p>
+<p> 配置热更新</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1760687433306-017476ee-9e62-4fde-a6c4-23b72cda415b.png" alt="image.png"></p>
+<p> TODO 动态路由</p>
+<p> 微服务保护(雪崩)</p>
+<p>1.请求限流</p>
+<p>2.线程隔离</p>
+<p>3.服务熔断</p>
+<p>4.失败处理fallback</p>
+<h3 id="Sentinel"><a href="#Sentinel" class="headerlink" title="Sentinel"></a>Sentinel</h3><p>分布式事务</p>
+<p>微服务下,事务回滚无法完成</p>
+<h3 id="seata"><a href="#seata" class="headerlink" title="seata"></a>seata</h3><p>高并发的解决方法</p>
+<p>XA 模式（数据库层两阶段）</p>
+<p>事务锁,强一致性</p>
+<p>AT 模式（Seata UndoLog）</p>
+<p>TCC 模式（业务层补偿）</p>
+<p> 异步通讯</p>
+<p>作用:</p>
+<p>1.异步</p>
+<p>2.解耦</p>
+<h3 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1762931588523-07951d3a-aeba-477f-b05b-92de4a22ffa0.png" alt="image.png"></p>
+<p>交换机(Exchange)</p>
+<p>Fanout：广播，将消息交给所有绑定到交换机的队列。</p>
+<p>Direct：订阅，基于RoutingKey（路由key）发送给订阅了消息的队列</p>
+<p>Topic：通配符订阅，与Direct类似，只不过RoutingKey可以使用通配符</p>
+<p>Headers：头匹配，基于MQ的消息头匹配，用的较少。</p>
+<h1 id="s-pay-mall业务流程"><a href="#s-pay-mall业务流程" class="headerlink" title="s-pay-mall业务流程"></a>s-pay-mall业务流程</h1><p>类的静态方法没法设置对象状态.可以用类生成对象,设置对象状态.这就是实例化.</p>
+<p>每次都要实例化有 <strong>多层嵌套、销毁、多实例</strong> 的麻烦.所以IoC通过:</p>
+<ol>
+<li>让类进入容器: 类加@Component,或者配置类加@Bean</li>
+<li>给属性赋值: 基本类型和String 使用 @Value , 其他的 使用 @Autowired (注入方式多用构造函数)</li>
+<li>调用动态方法</li>
+</ol>
+<p>此外,IoC的优势有:</p>
+<p>IOC 容器是 AOP 的基础.通过容器管理 Bean，可以在 Bean 方法执行前后加增强（事务、日志、权限校验）.</p>
+<p>如果对象不在容器里，就无法自动代理和增强</p>
+<h2 id="登录校验"><a href="#登录校验" class="headerlink" title="登录校验"></a>登录校验</h2><h2 id="商品交易"><a href="#商品交易" class="headerlink" title="商品交易"></a>商品交易</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    %% 定义节点样式，模拟字符图的方框感</span><br><span class="line">    classDef box fill:#fff,stroke:#333,stroke-width:1px,align:left;</span><br><span class="line"></span><br><span class="line">    %% 1. 支付宝服务器</span><br><span class="line">    Node1[&quot;&lt;b&gt;支付宝服务器&lt;/b&gt;&lt;br/&gt;回调请求: HTTPS/HTTP&quot;]:::box</span><br><span class="line"></span><br><span class="line">    %% 连接线 1</span><br><span class="line">    Node1 --&gt;|&quot;访问公网 IP:8080&quot;| Node2</span><br><span class="line"></span><br><span class="line">    %% 2. 云服务器 FRPS</span><br><span class="line">    Node2[&quot;&lt;b&gt;云服务器 FRPS&lt;/b&gt;&lt;br/&gt;镜像: fatedier/frps&lt;br/&gt;      bind_port: 7000        (FRPC 建立隧道)&lt;br/&gt;      remotePort: 8080       (公网访问端口)&quot;]:::box</span><br><span class="line"></span><br><span class="line">    %% 连接线 2</span><br><span class="line">    Node2 --&gt;|&quot;TCP 隧道&lt;br/&gt;(remotePort 8080 -&gt; FRPC localPort 8099)&quot;| Node3</span><br><span class="line"></span><br><span class="line">    %% 3. macOS Docker FRPC</span><br><span class="line">    Node3[&quot;&lt;b&gt;macOS Docker FRPC&lt;/b&gt;&lt;br/&gt;镜像: fatedier/frpc&lt;br/&gt;localIP: 10.153.129.175     (宿主机 IP)&lt;br/&gt;localPort: 8099 (SpringBoot 端口)&quot;]:::box</span><br><span class="line"></span><br><span class="line">    %% 连接线 3</span><br><span class="line">    Node3 --&gt;|&quot;访问宿主机 SpringBoot&quot;| Node4</span><br><span class="line"></span><br><span class="line">    %% 4. 宿主机 SpringBoot</span><br><span class="line">    Node4[&quot;&lt;b&gt;宿主机 SpringBoot&lt;/b&gt;&lt;br/&gt;端口: 8099&lt;br/&gt;Docker 映射可选&quot;]:::box</span><br><span class="line"></span><br><span class="line">    %% 连接线 4</span><br><span class="line">    Node4 --&gt;|&quot;返回响应&quot;| Node5</span><br><span class="line"></span><br><span class="line">    %% 5. 返回路径</span><br><span class="line">    Node5[&quot;FRPC -&gt; FRPS -&gt; 支付宝&quot;]:::box</span><br></pre></td></tr></table></figure>
+
+<h2 id="具体代码分析"><a href="#具体代码分析" class="headerlink" title="具体代码分析"></a>具体代码分析</h2><h3 id="鉴权"><a href="#鉴权" class="headerlink" title="鉴权"></a>鉴权</h3><p>请求示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">timestamp = 1000000</span><br><span class="line">nonce = 123456</span><br><span class="line">signature = sha1(token, timestamp, nonce)</span><br><span class="line">echostr = ABC</span><br></pre></td></tr></table></figure>
+
+<p>解码 token在网站设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SignatureUtil.check(token, signature, timestamp, nonce)</span><br></pre></td></tr></table></figure>
+
+<h4 id="为什么需要同时使用-timestamp-与-nonce"><a href="#为什么需要同时使用-timestamp-与-nonce" class="headerlink" title="为什么需要同时使用 timestamp 与 nonce?"></a>为什么需要同时使用 timestamp 与 nonce?</h4><h5 id="随机数-nonce-：保证请求在并发场景下唯一"><a href="#随机数-nonce-：保证请求在并发场景下唯一" class="headerlink" title="随机数 nonce ：保证请求在并发场景下唯一"></a>随机数 nonce ：保证请求在并发场景下唯一</h5><p>nonce 的意义在于避免签名冲突。<br>在实际系统中，同一秒内可能出现大量并发请求。<br>如果没有 nonce，所有同一秒内的请求会共享相同的 timestamp，导致 signature 可能重复。</p>
+<p>因此 nonce 用于确保：</p>
+<ul>
+<li>同一秒内的请求也具有不同签名；</li>
+<li>内容相同的多个请求仍能被区分。</li>
+</ul>
+<p>需要注意的是：<br>nonce 本身不包含时效性。攻击者可以截获一次合法请求（含 nonce），在之后任意时间重新发送。如果服务器不记录 nonce，将无法分辨这是旧请求。</p>
+<h5 id="时间戳-timestamp-：判断请求是否在有效期内"><a href="#时间戳-timestamp-：判断请求是否在有效期内" class="headerlink" title="时间戳 timestamp ：判断请求是否在有效期内"></a>时间戳 timestamp ：判断请求是否在有效期内</h5><p>即便 nonce 很随机，但无法判断该请求是“刚刚发送的”还是“很久以前的”。<br>timestamp 则解决了这一问题。</p>
+<p>服务器常见的做法是：</p>
+<ul>
+<li>若 timestamp 与当前时间差距过大（例如超过五分钟），则认为该请求为过期请求并拒绝处理。</li>
+</ul>
+<p>因此 timestamp 的核心作用是防止重放攻击，即阻止攻击者对旧请求进行重复发送。</p>
+<h5 id="为什么不能只使用-timestamp"><a href="#为什么不能只使用-timestamp" class="headerlink" title="为什么不能只使用 timestamp"></a>为什么不能只使用 timestamp</h5><p>timestamp 精度通常为“秒”。<br>在实际业务中，同一秒可能出现多条请求。<br>若只依赖 timestamp，将无法区分同一秒内的多条合法请求，从而可能导致签名冲突。</p>
+<p>nonce 的存在就是为了解决这一问题。</p>
+<ul>
+<li>公众号的事件推送常出现并发；</li>
+<li>同一秒内可能由多名用户触发多条消息；</li>
+<li>官方服务器可能批量推送多条记录。</li>
+</ul>
+<p>因此，真实环境中无法依赖 timestamp 单独提供区分能力，所以 nonce 必须保留。</p>
+<h3 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/59284050/1763633924599-e2b3109c-1d22-4a1f-9b38-fd6134c1a2bf.png" alt="img"></p>
+<p>开发者设置 Token  固定  验证微信服务器调用你接口的合法性          永久</p>
+<p> access_token        会变   调用微信 API（发消息、生成二维码等）   2 小时 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private static final String BASE_URL = &quot;https://api.weixin.qq.com/&quot;;</span><br><span class="line"></span><br><span class="line">@Bean</span><br><span class="line">public Retrofit retrofit()&#123;</span><br><span class="line">    return new Retrofit.Builder()</span><br><span class="line">            .baseUrl(BASE_URL)</span><br><span class="line">            .addConverterFactory(JacksonConverterFactory.create())</span><br><span class="line">            .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个@Bean的作用是:</p>
+<p><strong>把一个配置好的 Retrofit 客户端交给 Spring 容器管理</strong>，然后可以在项目中通过依赖注入直接使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private Retrofit retrofit;</span><br></pre></td></tr></table></figure>
+
+<p>实例化:</p>
+<ul>
+<li>依赖对象状态（比如 base URL、converter、token 等）。</li>
+<li>需要先生成实例，才能调用方法。</li>
+<li>调用实例方法时，Retrofit 内部会生成 HTTP 请求并发出去。</li>
+</ul>
+<p>问题1:</p>
+<p>根据你之前提供的环境：</p>
+<ul>
+<li>IDEA 2025.1</li>
+<li>JDK 1.8</li>
+<li>Maven 3.8.x</li>
+<li>Lombok 1.18.30</li>
+</ul>
+<p>这种组合在某些 JDK 1.8 上仍会触发 TypeTag :: UNKNOWN。原因主要是 <strong>Javac 内部版本过旧，无法正确解析枚举&#x2F;Builder</strong>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/12/15/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/12/15/py%E7%88%AC%E8%99%AB_python%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/" rel="next" title="py爬虫_python考试网站">
+      py爬虫_python考试网站 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mvc"><span class="nav-number">1.1.</span> <span class="nav-text">mvc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringCloud"><span class="nav-number">1.2.</span> <span class="nav-text">SpringCloud</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">远程调用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%B1%A0-OK-HTTP"><span class="nav-number">1.2.2.</span> <span class="nav-text">连接池(OK HTTP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83-nacos"><span class="nav-number">1.2.3.</span> <span class="nav-text">注册中心(nacos)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8-openfeign"><span class="nav-number">1.2.4.</span> <span class="nav-text">远程调用(openfeign)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E5%85%B3"><span class="nav-number">1.2.5.</span> <span class="nav-text">网关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86-Nacos"><span class="nav-number">1.2.6.</span> <span class="nav-text">配置管理(Nacos)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentinel"><span class="nav-number">1.2.7.</span> <span class="nav-text">Sentinel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#seata"><span class="nav-number">1.2.8.</span> <span class="nav-text">seata</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RabbitMQ"><span class="nav-number">1.2.9.</span> <span class="nav-text">RabbitMQ</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-pay-mall%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">s-pay-mall业务流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%A0%A1%E9%AA%8C"><span class="nav-number">2.1.</span> <span class="nav-text">登录校验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%95%86%E5%93%81%E4%BA%A4%E6%98%93"><span class="nav-number">2.2.</span> <span class="nav-text">商品交易</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-number">2.3.</span> <span class="nav-text">具体代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%89%B4%E6%9D%83"><span class="nav-number">2.3.1.</span> <span class="nav-text">鉴权</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8-timestamp-%E4%B8%8E-nonce"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">为什么需要同时使用 timestamp 与 nonce?</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0-nonce-%EF%BC%9A%E4%BF%9D%E8%AF%81%E8%AF%B7%E6%B1%82%E5%9C%A8%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E4%B8%8B%E5%94%AF%E4%B8%80"><span class="nav-number">2.3.1.1.1.</span> <span class="nav-text">随机数 nonce ：保证请求在并发场景下唯一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E6%88%B3-timestamp-%EF%BC%9A%E5%88%A4%E6%96%AD%E8%AF%B7%E6%B1%82%E6%98%AF%E5%90%A6%E5%9C%A8%E6%9C%89%E6%95%88%E6%9C%9F%E5%86%85"><span class="nav-number">2.3.1.1.2.</span> <span class="nav-text">时间戳 timestamp ：判断请求是否在有效期内</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%8F%AA%E4%BD%BF%E7%94%A8-timestamp"><span class="nav-number">2.3.1.1.3.</span> <span class="nav-text">为什么不能只使用 timestamp</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E9%99%86"><span class="nav-number">2.3.2.</span> <span class="nav-text">登陆</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yumemi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shiinapple" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shiinapple" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lhr622@qq.com" title="E-Mail → mailto:lhr622@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/shiinappple" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;shiinappple" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2024 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yumemi</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

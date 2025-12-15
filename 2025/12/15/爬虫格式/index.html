@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shiinapple.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="getimport requestsquery&#x3D; input(“输入你想搜索的东西\n”)url &#x3D; f’https:&#x2F;&#x2F;www.sogou.com&#x2F;web?query&#x3D;{query}‘ headers &#x3D; {    “user-agent”:”Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="py爬虫格式">
+<meta property="og:url" content="https://shiinapple.github.io/2025/12/15/%E7%88%AC%E8%99%AB%E6%A0%BC%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Shiinapple&#39;s Blog">
+<meta property="og:description" content="getimport requestsquery&#x3D; input(“输入你想搜索的东西\n”)url &#x3D; f’https:&#x2F;&#x2F;www.sogou.com&#x2F;web?query&#x3D;{query}‘ headers &#x3D; {    “user-agent”:”Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&amp;#x2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-15T12:53:47.410Z">
+<meta property="article:modified_time" content="2024-12-04T05:05:58.000Z">
+<meta property="article:author" content="Yumemi">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://shiinapple.github.io/2025/12/15/%E7%88%AC%E8%99%AB%E6%A0%BC%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>py爬虫格式 | Shiinapple's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Shiinapple's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shiinapple's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://shiinapple.github.io/2025/12/15/%E7%88%AC%E8%99%AB%E6%A0%BC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yumemi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shiinapple's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          py爬虫格式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-12-15 20:53:47" itemprop="dateCreated datePublished" datetime="2025-12-15T20:53:47+08:00">2025-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-04 13:05:58" itemprop="dateModified" datetime="2024-12-04T13:05:58+08:00">2024-12-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="get"><a href="#get" class="headerlink" title="get"></a>get</h2><p>import requests<br>query&#x3D; input(“输入你想搜索的东西\n”)<br>url &#x3D; f’<a target="_blank" rel="noopener" href="https://www.sogou.com/web?query=%7Bquery%7D">https://www.sogou.com/web?query={query}</a>‘</p>
+<p>headers &#x3D; {<br>    “user-agent”:”Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;130.0.0.0 Safari&#x2F;537.36 Edg&#x2F;130.0.0.0”<br>}<br>resp &#x3D; requests.get(url,headers&#x3D;headers)</p>
+<p>print(resp)<br>print(resp.text)<br>resp.close()</p>
+<h2 id="post"><a href="#post" class="headerlink" title="post"></a>post</h2><p>import requests</p>
+<p>url &#x3D; “<a target="_blank" rel="noopener" href="https://fanyi.baidu.com/sug">https://fanyi.baidu.com/sug</a>“</p>
+<p>word&#x3D;input(“输入想翻译的单词”)<br>dat&#x3D;{<br>    “kw”:word<br>}</p>
+<p>resp &#x3D; requests.post(url,data&#x3D;dat)<br>print(resp.json())<br>resp.close()</p>
+<h2 id="re"><a href="#re" class="headerlink" title="re"></a>re</h2><p>import re<br>import csv</p>
+<h1 id="findall-很小的文件可以用"><a href="#findall-很小的文件可以用" class="headerlink" title="findall 很小的文件可以用"></a>findall 很小的文件可以用</h1><p>lst&#x3D;re.findall(r”\d+”,”my10086”)<br>print(lst)</p>
+<h1 id="finditer-迭代器-最常用"><a href="#finditer-迭代器-最常用" class="headerlink" title="finditer 迭代器?最常用"></a>finditer 迭代器?最常用</h1><p>it&#x3D;re.finditer(r”\d+”,”my10086”)<br>for i in it:<br>    print(i.group())</p>
+<h1 id="search只找到一个结果就返回"><a href="#search只找到一个结果就返回" class="headerlink" title="search只找到一个结果就返回"></a>search只找到一个结果就返回</h1><p>#search返回是match对象,拿数据要.group()<br>lst&#x3D;re.search(r”\d+”,”my10086”)<br>print(lst.group())</p>
+<h1 id="match必须从头匹配"><a href="#match必须从头匹配" class="headerlink" title="match必须从头匹配"></a>match必须从头匹配</h1><p>s &#x3D; re.match(r”\d+”,”my10086”)<br>print(s.group())</p>
+<h1 id="预加载正则表达式"><a href="#预加载正则表达式" class="headerlink" title="预加载正则表达式"></a>预加载正则表达式</h1><p>obj &#x3D; re.compile(r”\d+”)<br>it &#x3D; obj.finditer(“1234”)<br>for i in it:<br>    print(i.group())</p>
+<p>it &#x3D; obj.finditer(“5678”)<br>for i in it:<br>    print(i.group())</p>
+<h1 id="查找限定组"><a href="#查找限定组" class="headerlink" title="查找限定组"></a>查找限定组</h1><p>obj &#x3D; re.compile(“xxx.<em>?xxx(?P<name>.</name></em>?)”,re.S)<br>result &#x3D; obj.finditer(s)<br>#取所有组<br>for i in result:<br>    print(i.group())<br>#取某个组 #(?P<name>正则)<br>for i in result:<br>    print(i.group(“name”))</name></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/12/15/%E6%94%B6%E8%97%8F%E5%A4%B9/" rel="prev" title="【置顶】收藏夹">
+      <i class="fa fa-chevron-left"></i> 【置顶】收藏夹
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">1.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post"><span class="nav-number">2.</span> <span class="nav-text">post</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#re"><span class="nav-number">3.</span> <span class="nav-text">re</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#findall-%E5%BE%88%E5%B0%8F%E7%9A%84%E6%96%87%E4%BB%B6%E5%8F%AF%E4%BB%A5%E7%94%A8"><span class="nav-number"></span> <span class="nav-text">findall 很小的文件可以用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#finditer-%E8%BF%AD%E4%BB%A3%E5%99%A8-%E6%9C%80%E5%B8%B8%E7%94%A8"><span class="nav-number"></span> <span class="nav-text">finditer 迭代器?最常用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#search%E5%8F%AA%E6%89%BE%E5%88%B0%E4%B8%80%E4%B8%AA%E7%BB%93%E6%9E%9C%E5%B0%B1%E8%BF%94%E5%9B%9E"><span class="nav-number"></span> <span class="nav-text">search只找到一个结果就返回</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#match%E5%BF%85%E9%A1%BB%E4%BB%8E%E5%A4%B4%E5%8C%B9%E9%85%8D"><span class="nav-number"></span> <span class="nav-text">match必须从头匹配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E5%8A%A0%E8%BD%BD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number"></span> <span class="nav-text">预加载正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E9%99%90%E5%AE%9A%E7%BB%84"><span class="nav-number"></span> <span class="nav-text">查找限定组</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yumemi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shiinapple" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shiinapple" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lhr622@qq.com" title="E-Mail → mailto:lhr622@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/shiinappple" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;shiinappple" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2024 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yumemi</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

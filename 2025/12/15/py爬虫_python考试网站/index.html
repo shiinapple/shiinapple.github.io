@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"shiinapple.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基于 requests 的 HTTP 协议逆向方案，直接调用后台接口。 1. 数据加载模块 (data_loader.py)1234567891011121314151617181920212223242526272829303132333435import jsonfrom typing import List, Dict, Anyclass DataLoader:    &quot;&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="py爬虫_python考试网站">
+<meta property="og:url" content="https://shiinapple.github.io/2025/12/15/py%E7%88%AC%E8%99%AB_python%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/index.html">
+<meta property="og:site_name" content="Shiinapple&#39;s Blog">
+<meta property="og:description" content="基于 requests 的 HTTP 协议逆向方案，直接调用后台接口。 1. 数据加载模块 (data_loader.py)1234567891011121314151617181920212223242526272829303132333435import jsonfrom typing import List, Dict, Anyclass DataLoader:    &quot;&amp;quot">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-15T12:53:47.350Z">
+<meta property="article:modified_time" content="2025-12-15T14:09:48.192Z">
+<meta property="article:author" content="Yumemi">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://shiinapple.github.io/2025/12/15/py%E7%88%AC%E8%99%AB_python%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>py爬虫_python考试网站 | Shiinapple's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Shiinapple's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shiinapple's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://shiinapple.github.io/2025/12/15/py%E7%88%AC%E8%99%AB_python%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yumemi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shiinapple's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          py爬虫_python考试网站
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-12-15 20:53:47 / 修改时间：22:09:48" itemprop="dateCreated datePublished" datetime="2025-12-15T20:53:47+08:00">2025-12-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>基于 <strong>requests</strong> 的 HTTP 协议逆向方案，直接调用后台接口。</p>
+<h4 id="1-数据加载模块-data-loader-py"><a href="#1-数据加载模块-data-loader-py" class="headerlink" title="1. 数据加载模块 (data_loader.py)"></a>1. 数据加载模块 (<code>data_loader.py</code>)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">from typing import List, Dict, Any</span><br><span class="line"></span><br><span class="line">class DataLoader:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    负责从文件加载和验证数据 [cite: 137]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def __init__(self, file_path: str):</span><br><span class="line">        self.file_path = file_path</span><br><span class="line"></span><br><span class="line">    def load_data(self) -&gt; List[Dict[str, Any]]:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        加载并返回原始数据列表 [cite: 137]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        try:</span><br><span class="line">            with open(self.file_path, &#x27;r&#x27;, encoding=&#x27;utf-8&#x27;) as f:</span><br><span class="line">                return json.load(f)</span><br><span class="line">        except FileNotFoundError:</span><br><span class="line">            print(f&quot;❌ 错误：文件未找到，请确保 &#x27;&#123;self.file_path&#125;&#x27; 存在。&quot;)</span><br><span class="line">            return []</span><br><span class="line">        except json.JSONDecodeError:</span><br><span class="line">            print(f&quot;❌ 错误：&#x27;&#123;self.file_path&#125;&#x27; 文件不是有效的 JSON 格式。&quot;)</span><br><span class="line">            return []</span><br><span class="line">        except Exception as e:</span><br><span class="line">            print(f&quot;❌ 错误：加载文件时发生未知错误: &#123;e&#125;&quot;)</span><br><span class="line">            return []</span><br><span class="line"></span><br><span class="line">    def filter_valid_questions(self, data: List[Dict[str, Any]]) -&gt; List[Dict[str, Any]]:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        过滤出状态为 200 且包含详情的有效题目 [cite: 139]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        return [</span><br><span class="line">            item for item in data </span><br><span class="line">            if item.get(&#x27;status&#x27;) == 200 and item.get(&#x27;detail&#x27;)</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-业务逻辑模块-question-service-py"><a href="#2-业务逻辑模块-question-service-py" class="headerlink" title="2. 业务逻辑模块 (question_service.py)"></a>2. 业务逻辑模块 (<code>question_service.py</code>)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">from typing import List, Dict, Any</span><br><span class="line"></span><br><span class="line">class QuestionService:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    提供题目查询和格式化服务 [cite: 153]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def __init__(self, questions: List[Dict[str, Any]]):</span><br><span class="line">        self.questions = questions</span><br><span class="line"></span><br><span class="line">    def format_question_output(self, q_data: Dict[str, Any], show_answer: bool = False) -&gt; str:</span><br><span class="line">        &quot;&quot;&quot;格式化单个题目输出 [cite: 153]&quot;&quot;&quot;</span><br><span class="line">        question = q_data[&#x27;detail&#x27;][&#x27;question&#x27;]</span><br><span class="line">        knowledge = q_data[&#x27;detail&#x27;].get(&#x27;knowledgePoint&#x27;, &#123;&#125;)</span><br><span class="line">        test_cases = q_data[&#x27;detail&#x27;].get(&#x27;questionTestList&#x27;, [])</span><br><span class="line"></span><br><span class="line">        output = [</span><br><span class="line">            &quot;=&quot; * 60,</span><br><span class="line">            f&quot;ID: &#123;question[&#x27;id&#x27;]&#125;&quot;,</span><br><span class="line">            f&quot;标题: &#123;question[&#x27;title&#x27;]&#125;&quot;,</span><br><span class="line">            f&quot;类型: &#123;question[&#x27;type&#x27;]&#125; | 难度: &#123;question[&#x27;difficulty&#x27;]&#125;&quot;,</span><br><span class="line">            f&quot;知识点: &#123;knowledge.get(&#x27;name&#x27;, &#x27;N/A&#x27;)&#125;&quot;,</span><br><span class="line">            &quot;-&quot; * 60,</span><br><span class="line">            &quot;📝 题目内容:&quot;,</span><br><span class="line">            question[&#x27;content&#x27;].strip(),</span><br><span class="line">            f&quot;\n测试用例 (&#123;len(test_cases)&#125;个):&quot;</span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">        for idx, case in enumerate(test_cases[:3]):</span><br><span class="line">            output.append(f&quot;  - 输入: &#123;case.get(&#x27;input&#x27;, &#x27;无&#x27;)&#125; | 预期输出: &#123;case.get(&#x27;output&#x27;, &#x27;无&#x27;)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">        if show_answer:</span><br><span class="line">            output.append(&quot;\n💡 标准答案:&quot;)</span><br><span class="line">            output.append(question[&#x27;answer&#x27;].strip())</span><br><span class="line"></span><br><span class="line">        output.append(&quot;=&quot; * 60)</span><br><span class="line">        return &quot;\n&quot;.join(output)</span><br><span class="line"></span><br><span class="line">    def find_by_id(self, question_id: str) -&gt; Dict[str, Any]:</span><br><span class="line">        for item in self.questions:</span><br><span class="line">            if item[&#x27;id&#x27;] == question_id:</span><br><span class="line">                return item</span><br><span class="line">        return None</span><br><span class="line"></span><br><span class="line">    def find_by_type(self, q_type: str) -&gt; List[Dict[str, Any]]:</span><br><span class="line">        return [</span><br><span class="line">            item for item in self.questions</span><br><span class="line">            if item[&#x27;detail&#x27;][&#x27;question&#x27;][&#x27;type&#x27;] == q_type</span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">    def find_by_difficulty(self, difficulty: str) -&gt; List[Dict[str, Any]]:</span><br><span class="line">        return [</span><br><span class="line">            item for item in self.questions</span><br><span class="line">            if item[&#x27;detail&#x27;][&#x27;question&#x27;][&#x27;difficulty&#x27;] == difficulty</span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">    def search_by_keyword(self, keyword: str) -&gt; List[Dict[str, Any]]:</span><br><span class="line">        keyword = keyword.lower()</span><br><span class="line">        results = []</span><br><span class="line">        for item in self.questions:</span><br><span class="line">            question = item[&#x27;detail&#x27;][&#x27;question&#x27;]</span><br><span class="line">            title = question[&#x27;title&#x27;].lower()</span><br><span class="line">            content = question[&#x27;content&#x27;].lower()</span><br><span class="line">            if keyword in title or keyword in content:</span><br><span class="line">                results.append(item)</span><br><span class="line">        return results</span><br><span class="line"></span><br><span class="line">    def get_statistics(self) -&gt; tuple:</span><br><span class="line">        &quot;&quot;&quot;返回(类型集合, 难度集合) [cite: 159]&quot;&quot;&quot;</span><br><span class="line">        types = set()</span><br><span class="line">        difficulties = set()</span><br><span class="line">        for item in self.questions:</span><br><span class="line">            question = item[&#x27;detail&#x27;][&#x27;question&#x27;]</span><br><span class="line">            types.add(question[&#x27;type&#x27;])</span><br><span class="line">            difficulties.add(question[&#x27;difficulty&#x27;])</span><br><span class="line">        return sorted(list(types)), sorted(list(difficulties))</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-主程序入口-main-py"><a href="#3-主程序入口-main-py" class="headerlink" title="3. 主程序入口 (main.py)"></a>3. 主程序入口 (<code>main.py</code>)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">from data_loader import DataLoader</span><br><span class="line">from question_service import QuestionService</span><br><span class="line"></span><br><span class="line">class QuestionAnalyzerApp:</span><br><span class="line">    def __init__(self, file_path: str):</span><br><span class="line">        # 1. 加载数据</span><br><span class="line">        loader = DataLoader(file_path)</span><br><span class="line">        raw_data = loader.load_data()</span><br><span class="line">        valid_questions = loader.filter_valid_questions(raw_data)</span><br><span class="line"></span><br><span class="line">        print(f&quot;✅ 数据加载成功。找到 &#123;len(raw_data)&#125; 条记录，其中 &#123;len(valid_questions)&#125; 条有效。&quot;)</span><br><span class="line"></span><br><span class="line">        # 2. 初始化服务</span><br><span class="line">        self.service = QuestionService(valid_questions)</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        if not self.service.questions:</span><br><span class="line">            print(&quot;🛑 数据集为空，程序退出。&quot;)</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        while True:</span><br><span class="line">            self._print_menu()</span><br><span class="line">            choice = input(&quot;请输入操作编号 (1-6): &quot;).strip()</span><br><span class="line"></span><br><span class="line">            if choice == &#x27;1&#x27;:</span><br><span class="line">                self._handle_find_by_id()</span><br><span class="line">            elif choice == &#x27;2&#x27;:</span><br><span class="line">                self._handle_statistics()</span><br><span class="line">            elif choice == &#x27;3&#x27;:</span><br><span class="line">                self._handle_find_by_type()</span><br><span class="line">            elif choice == &#x27;4&#x27;:</span><br><span class="line">                self._handle_find_by_difficulty()</span><br><span class="line">            elif choice == &#x27;5&#x27;:</span><br><span class="line">                self._handle_search()</span><br><span class="line">            elif choice == &#x27;6&#x27;:</span><br><span class="line">                print(&quot;👋 感谢使用，程序已退出。&quot;)</span><br><span class="line">                break</span><br><span class="line">            else:</span><br><span class="line">                print(&quot;⚠️ 无效的输入，请重新输入编号 (1-6)。&quot;)</span><br><span class="line"></span><br><span class="line">            input(&quot;\n按 Enter 键继续...&quot;)</span><br><span class="line"></span><br><span class="line">    def _print_menu(self):</span><br><span class="line">        print(&quot;\n&quot; + &quot;=&quot; * 50)</span><br><span class="line">        print(&quot;📚 题目数据分析器 v3.0 (Modular) - 请选择操作:&quot;)</span><br><span class="line">        print(&quot;=&quot; * 50)</span><br><span class="line">        print(&quot;1. 🔍 按 ID 查找题目和答案&quot;)</span><br><span class="line">        print(&quot;2. 📊 统计与列出所有类型/难度&quot;)</span><br><span class="line">        print(&quot;3. 🔢 按题目类型查找 (预览)&quot;)</span><br><span class="line">        print(&quot;4. ⭐ 按题目难度查找 (预览)&quot;)</span><br><span class="line">        print(&quot;5. 🔎 关键字搜索 (标题/内容)&quot;)</span><br><span class="line">        print(&quot;6. ❌ 退出程序&quot;)</span><br><span class="line">        print(&quot;-&quot; * 50)</span><br><span class="line"></span><br><span class="line">    def _handle_find_by_id(self):</span><br><span class="line">        q_id = input(&quot;请输入要查找的题目 ID: &quot;).strip()</span><br><span class="line">        show_ans = input(&quot;是否显示标准答案? (y/n): &quot;).lower() == &#x27;y&#x27;</span><br><span class="line">        item = self.service.find_by_id(q_id)</span><br><span class="line">        if item:</span><br><span class="line">            print(f&quot;\n🔍 找到题目 (ID: &#123;q_id&#125;):&quot;)</span><br><span class="line">            print(self.service.format_question_output(item, show_ans))</span><br><span class="line">        else:</span><br><span class="line">            print(f&quot;❌ 未找到 ID 为 &#x27;&#123;q_id&#125;&#x27; 的题目。&quot;)</span><br><span class="line"></span><br><span class="line">    def _handle_statistics(self):</span><br><span class="line">        types, difficulties = self.service.get_statistics()</span><br><span class="line">        print(&quot;\n📊 数据集统计:&quot;)</span><br><span class="line">        print(f&quot; - 所有题目类型: &#123;&#x27;, &#x27;.join(types)&#125;&quot;)</span><br><span class="line">        print(f&quot; - 所有题目难度: &#123;&#x27;, &#x27;.join(difficulties)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    def _handle_find_by_type(self):</span><br><span class="line">        q_type = input(&quot;请输入要查找的题目类型: &quot;).strip()</span><br><span class="line">        self._search_and_print(self.service.find_by_type, q_type, f&quot;类型为 &#x27;&#123;q_type&#125;&#x27;&quot;)</span><br><span class="line"></span><br><span class="line">    def _handle_find_by_difficulty(self):</span><br><span class="line">        difficulty = input(&quot;请输入要查找的题目难度: &quot;).strip()</span><br><span class="line">        self._search_and_print(self.service.find_by_difficulty, difficulty, f&quot;难度为 &#x27;&#123;difficulty&#125;&#x27;&quot;)</span><br><span class="line"></span><br><span class="line">    def _handle_search(self):</span><br><span class="line">        keyword = input(&quot;请输入要搜索的关键字: &quot;).strip()</span><br><span class="line">        self._search_and_print(self.service.search_by_keyword, keyword, f&quot;包含关键字 &#x27;&#123;keyword&#125;&#x27;&quot;)</span><br><span class="line"></span><br><span class="line">    def _search_and_print(self, func, arg, desc):</span><br><span class="line">        limit = input(&quot;请输入限制显示的数量 (默认5): &quot;)</span><br><span class="line">        limit = int(limit) if limit.isdigit() else 5</span><br><span class="line"></span><br><span class="line">        results = func(arg)</span><br><span class="line">        print(f&quot;\n🔍 找到 &#123;len(results)&#125; 个&#123;desc&#125;的题目。显示前 &#123;min(len(results), limit)&#125; 个。&quot;)</span><br><span class="line"></span><br><span class="line">        for item in results[:limit]:</span><br><span class="line">            print(self.service.format_question_output(item, show_answer=False))</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    app = QuestionAnalyzerApp(&#x27;ans.json&#x27;)</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/12/15/java%E9%A1%B9%E7%9B%AE_s-mall-ddd/" rel="prev" title="java项目_s-mall-ddd">
+      <i class="fa fa-chevron-left"></i> java项目_s-mall-ddd
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/12/15/py%E7%88%AC%E8%99%AB_c%E8%AF%AD%E8%A8%80%E8%80%83%E8%AF%95%E7%BD%91%E7%AB%99/" rel="next" title="py爬虫_c语言考试网站">
+      py爬虫_c语言考试网站 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97-data-loader-py"><span class="nav-number">1.</span> <span class="nav-text">1. 数据加载模块 (data_loader.py)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%A8%A1%E5%9D%97-question-service-py"><span class="nav-number">2.</span> <span class="nav-text">2. 业务逻辑模块 (question_service.py)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3-main-py"><span class="nav-number">3.</span> <span class="nav-text">3. 主程序入口 (main.py)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yumemi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shiinapple" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shiinapple" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lhr622@qq.com" title="E-Mail → mailto:lhr622@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/shiinappple" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;shiinappple" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2024 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yumemi</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
