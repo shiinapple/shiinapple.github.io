@@ -4,7 +4,7 @@
     <title>【置顶】收藏夹</title>
     <url>/2024/10/21/%E6%94%B6%E8%97%8F%E5%A4%B9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script>
-    <div id="aplayer-WERsjSyU" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="12654282371" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-UnbkfhVf" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="12654282371" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 
 <h2 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h2><p><a href="https://app.simplenote.com/">simplenote</a><br><a href="https://www.onlinegdb.com/">onlinegdb</a></p>
 <h2 id="LLMs"><a href="#LLMs" class="headerlink" title="LLMs"></a>LLMs</h2><p><a href="https://www.perplexity.ai/">perplexity</a><br><a href="https://huggingface.co/chat/">huggingface</a><br><a href="https://chat.deepseek.com/coder">deepseek</a><br><a href="https://chatglm.cn/main/alltoolsdetail?lang=zh">智谱清言</a><br><a href="https://metaso.cn/">秘塔</a><br> <span id="more"></span><br><a href="https://kimi.moonshot.cn/">kimi</a><br><a href="https://code.fittentech.com/">fitten code</a></p>
@@ -87,7 +87,42 @@
 <p>解决前端对微服务难以维护,有了网关,前端就可以像单体式架构一样直接调用网关了</p>
 <p>但是!!后端开发仍然需要配置路由规则,让json找到需要的服务</p>
 <p> 路由</p>
-<p>Gateway 收到请求请求被包装成一个 ServerWebExchange 对象。路由匹配阶段Gateway 遍历所有 Route。调用每个 Route 的 predicate。这里的 Path&#x3D;&#x2F;api&#x2F;user&#x2F;** 断言返回 true → 匹配成功。路由命中Gateway 确定目标 URI 为 lb:&#x2F;&#x2F;user-service。创建过滤器链（包括全局和局部过滤器）。执行前置过滤器(pre)StripPrefix&#x3D;1 会将路径从 &#x2F;api&#x2F;user&#x2F;list 变成 &#x2F;user&#x2F;list。然后继续。请求被转发Gateway 将请求交给负载均衡器（LoadBalancerClient）。实际转发给一个实例，比如 <a href="http://192.168.0.5:8081/user/list%E3%80%82%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%84%E7%90%86%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94user-service">http://192.168.0.5:8081/user/list。微服务处理并返回响应user-service</a> 返回 JSON 数据。执行后置过滤器(post)比如加响应头、记录日志等。Gateway 将结果返回客户端</p>
+<p>​	<strong>Gateway 收到请求</strong></p>
+<ul>
+<li><p>请求被包装成一个 ServerWebExchange 对象。</p>
+<p><strong>路由匹配阶段</strong></p>
+</li>
+<li><p>Gateway 遍历所有 Route。</p>
+</li>
+<li><p>调用每个 Route 的 predicate。</p>
+</li>
+<li><p>这里的 Path&#x3D;&#x2F;api&#x2F;user&#x2F;** 断言返回 true → 匹配成功。</p>
+</li>
+</ul>
+<p>​	<strong>路由命中</strong></p>
+<ul>
+<li>Gateway 确定目标 URI 为 lb:&#x2F;&#x2F;user-service。</li>
+<li>创建过滤器链（包括全局和局部过滤器）。</li>
+</ul>
+<p>​	<strong>执行前置过滤器(pre)</strong></p>
+<ul>
+<li>StripPrefix&#x3D;1 会将路径从 &#x2F;api&#x2F;user&#x2F;list 变成 &#x2F;user&#x2F;list。</li>
+<li>然后继续。</li>
+</ul>
+<p>​	<strong>请求被转发</strong></p>
+<ul>
+<li>Gateway 将请求交给负载均衡器（LoadBalancerClient）。</li>
+<li>实际转发给一个实例，比如 <a href="http://192.168.0.5:8081/user/list%E3%80%82">http://192.168.0.5:8081/user/list。</a></li>
+</ul>
+<p>​	<strong>微服务处理并返回响应</strong></p>
+<ul>
+<li>user-service 返回 JSON 数据。</li>
+</ul>
+<p>​	<strong>执行后置过滤器(post)</strong></p>
+<ul>
+<li>比如加响应头、记录日志等。</li>
+</ul>
+<p>​	<strong>Gateway 将结果返回客户端</strong></p>
 <p>路由断言:规定请求是否命中某条路由</p>
 <p>路由过滤器:请求转发前后对请求&#x2F;响应做修改、增强或拦截</p>
 <p><img src="/images/java_s-mall-ddd/1760072730411-757c3eb5-00b0-4d32-8da1-6a8f13e6566c.png" alt="image.png"></p>
